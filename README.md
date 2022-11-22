@@ -2,8 +2,8 @@
 This is a micro framework expose ***REST-API*** endpoints. Application is following clean code mindset ***MVC*** , ***OOP***, ***SOILDS***, ***KISS***, ***DRY***, ***YANGI*** and same design patterns (***strategy*** pattern, ***adapter*** pattern, ***Template-Method*** pattern, auto ***DI*** from router to controller ).
 
 ## What's Run :
-- **PHP**,
-- **MariaDB**,
+- **PHP**
+- **MariaDB**
 - **Docker**
 - **Redis**
 
