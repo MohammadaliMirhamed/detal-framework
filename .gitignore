@@ -1,9 +1,10 @@
 .idea/
 .vscode/
 /vendor/
-/logs/*
+/logs/
 .phpunit.result.cache
-/docker/mariadb/*
-/docker/redis/*
-/storage/*
+/docker/mariadb/
+/docker/redis/
+/docker/php/
+/storage/
 .env
