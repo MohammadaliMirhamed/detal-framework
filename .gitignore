@@ -3,6 +3,7 @@
 /vendor/
 /logs/*
 .phpunit.result.cache
-/docker/mysql/*
+/docker/mariadb/*
 /docker/redis/*
 /storage/*
+.env
