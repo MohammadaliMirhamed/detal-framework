@@ -32,6 +32,7 @@ Detal framework; has its own dedicated command line system to controll applicati
 For seeing the menu  run : ``` docker exec -it code_app_1 php detal ```
 
 ![alt text](https://mirhamedrooy.ir/wp-content/uploads/2022/11/Screenshot-from-2022-11-23-02-05-42.png)
+
 For example if you want to add controller just run : 
 ```docker exec -it code_app_1 php detal make:controller PushController```
 
