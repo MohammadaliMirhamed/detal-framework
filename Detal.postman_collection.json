@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "5d89ec13-64ae-4f66-be36-00012383212a",
+		"name": "Detal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5539935"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/api/users",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "ali",
+									"description": "user name",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ali@dev.io",
+									"description": "user email",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "09123456789",
+									"description": "user mobile",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "user password",
+									"type": "text"
+								},
+								{
+									"key": "brith_day",
+									"value": "1370/03/03",
+									"description": "user brith day",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "man",
+									"description": "user sex",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/api/users",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/api/users/{{user_id}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/api/users/{{user_id}}",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{user_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Import",
+			"item": [
+				{
+					"name": "users file",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "users_file",
+									"description": "Select a file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{api_url}}/api/import/users",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"api",
+								"import",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

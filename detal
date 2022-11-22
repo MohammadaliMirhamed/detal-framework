@@ -1,0 +1,84 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use App\Configs\Command;
+
+Command::formatPrint(['yellow'], "Detal Framework ");
+Command::formatPrintLn(['yellowbg'], "1.0.0");
+
+if (empty($argv[1])) {
+    print(PHP_EOL);
+    Command::formatPrintLn(['redbg'], "Usage:");
+    Command::formatPrintLn(['magenta'], "  command [options] [arguments]");
+
+    print(PHP_EOL);
+    Command::formatPrintLn(['yellow','bold'], "model");
+    Command::formatPrint(['green'], "  make:model");
+    Command::formatPrintLn(['white'], "    This command will make a model");
+
+    print(PHP_EOL);
+    Command::formatPrintLn(['yellow','bold'], "service");
+    Command::formatPrint(['green'], "  make:service");
+    Command::formatPrintLn(['white'], "    This command will make a service");
+
+    print(PHP_EOL);
+    Command::formatPrintLn(['yellow','bold'], "controller");
+    Command::formatPrint(['green'], "  make:controller");
+    Command::formatPrintLn(['white'], "    This command will make a controller");
+
+    print(PHP_EOL);
+    Command::formatPrintLn(['yellow','bold'], "interface");
+    Command::formatPrint(['green'], "  make:interface");
+    Command::formatPrintLn(['white'], "    This command will make a interface");
+
+
+} else {
+    
+    $fileName = explode('/', $argv[2]);
+    $fileName = ucfirst(end($fileName));
+
+    switch ($argv[1]) {
+        case "make:model":
+            if (isset($argv[2])) {
+                echo Command::publisher('model', $argv[2], ['#ModelName' => ucfirst($fileName), '#TableName' => strtolower($fileName)]) > 0
+                    ? "Model has created"
+                    : "Model already exists";
+            } else {
+                echo "you missed an arguments !";
+            }
+            break;
+        case "make:service":
+            if (!empty($argv[2])) {
+                echo Command::publisher('service', $argv[2], ['#ServiceName' => ucfirst($fileName)]) > 0 
+                    ? "Service has created"
+                    : "Service already exists";
+            } else {
+                echo "you missed an arguments !";
+            }
+            break;
+        case "make:controller":
+            if (!empty($argv[2])) {
+                echo Command::publisher('controller', $argv[2], ['#ControllerName' => ucfirst($fileName)]) > 0 
+                    ? "Controller has created"
+                    : "Controller already exists";
+            } else {
+                echo "you missed an arguments !";
+            }
+            break;
+        case "make:interface":
+            if (!empty($argv[2])) {
+                echo Command::publisher('controller', $argv[2], ['#InterfaceName' => ucfirst($fileName)]) > 0 
+                    ? "Interface has created"
+                    : "InterFace already exists";
+            } else {
+                echo "you missed an arguments !";
+            }
+            break;
+        default:
+            echo "wrong command :(";
+    }
+}
+
+print(PHP_EOL);

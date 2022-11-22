@@ -1,0 +1,48 @@
+stages:
+  - develop_build
+  - develop_deploy
+  - production_build
+  - production_deploy
+
+develop_build:
+  stage: develop_build
+  tags:
+    - develop
+  script:
+    - echo "start pulling..."
+    - git pull
+    - echo "finish pulling..."
+  only:
+    - master
+
+develop_deploy:
+  stage: develop_deploy
+  tags:
+    - develop
+  script:
+    - docker-compose up -d 
+  only:
+    - master
+
+production_build:
+  stage: production_build
+  tags:
+    - production
+  script:
+    - echo "start pulling..."
+    - git pull
+    - echo "finish pulling..."
+  environment:
+    name: production
+  only:
+    - tags
+
+production_deploy:
+  stage: production_deploy
+  tags:
+    - production
+  script:
+    docker-compose up -d  
+  only:
+    - tags
+  when: manual
